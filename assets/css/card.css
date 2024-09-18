@@ -148,3 +148,12 @@
 #project-image:hover {
 	transform: scale(1.1);
 }
+
+.skills-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills-column {
+    width: 48%;
+}
