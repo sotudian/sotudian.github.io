@@ -1,6 +1,6 @@
 title: Shahab Sotudian
 description: ML Engineer
-site_title: '@ss - Shahab Sotudian'
+site_title: 'Shahab Sotudian'
 
 # Build settings
 markdown: kramdown
@@ -8,10 +8,10 @@ exclude: [vendor/ruby]
 
 # Personalization
 github_username: Sotudian
-blog_url: https://www.Sotudian.com
+blog_url: https://connects.catalyst.harvard.edu/Profiles/display/Person/212376/Network/SimilarTo
 email: Sotudian@bu.edu
 keybase_username: Sotudian
-twitter_username: Sotudian
+twitter_username: s_sotudian
 reddit_username: Sotudian
 
 # absolute or relative
