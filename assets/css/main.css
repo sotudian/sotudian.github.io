@@ -580,11 +580,15 @@ a {
   }
 }
 
-.skills-columns {
-    display: flex;
-    justify-content: space-between;
+@media (max-width: 768px) {
+    .skills-column {
+        width: 48%; /* Two columns on medium-sized screens */
+    }
 }
 
-.skills-column {
-    width: 48%;
+@media (max-width: 480px) {
+    .skills-column {
+        width: 100%; /* Single column on small screens */
+    }
 }
+
