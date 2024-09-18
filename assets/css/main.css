@@ -579,3 +579,12 @@ a {
     bottom: 15px;
   }
 }
+
+.skills-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills-column {
+    width: 48%;
+}
