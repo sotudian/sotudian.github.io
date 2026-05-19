@@ -428,10 +428,100 @@ footer{
   .about-images{grid-template-columns:1fr}
   .about-images .img-card:first-child{grid-column:auto}
 }
+
+/* ── SCROLL PROGRESS BAR ── */
+#scroll-bar{
+  position:fixed;top:0;left:0;height:2px;width:0%;
+  background:linear-gradient(90deg,var(--teal),var(--gold),var(--gold-l));
+  z-index:9999;transition:width .05s linear;
+  box-shadow:0 0 8px rgba(201,162,39,.6);
+}
+
+/* ── CURSOR GLOW ── */
+#cursor-glow{
+  position:fixed;width:320px;height:320px;border-radius:50%;
+  pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(201,162,39,.04) 0%,transparent 70%);
+  transform:translate(-50%,-50%);transition:opacity .3s;
+  will-change:left,top;
+}
+
+/* ── EXPERIENCE BADGE ── */
+.exp-badge-wrap{
+  display:flex;align-items:center;gap:1.6rem;
+  margin-bottom:2.8rem;
+  opacity:0;animation:fadeUp .9s 1s forwards;
+}
+.exp-badge{
+  position:relative;flex-shrink:0;
+  width:90px;height:102px;
+}
+.exp-hex-bg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 18px rgba(201,162,39,.18))}
+.exp-badge-inner{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;gap:0;
+}
+.exp-badge-num{
+  font-family:var(--serif);font-size:2.9rem;font-weight:700;
+  color:var(--gold);line-height:1;
+  text-shadow:0 0 24px rgba(201,162,39,.5);
+}
+.exp-badge-sup{
+  font-family:var(--serif);font-size:1.3rem;font-weight:300;
+  color:rgba(201,162,39,.75);align-self:flex-start;margin-top:.35rem;
+}
+.exp-badge-label{
+  display:flex;flex-direction:column;gap:.35rem;
+}
+.exp-badge-title{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--white);line-height:1.55;
+  font-weight:500;
+}
+.exp-badge-sub{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.09em;
+  color:var(--white-60);
+}
+
+/* ── INSTITUTION LOGOS ── */
+.tl-company-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.2rem}
+.tl-logos{display:flex;gap:.35rem;align-items:center}
+.tl-logo{
+  width:30px;height:30px;object-fit:contain;
+  background:#fff;border-radius:6px;padding:3px;
+  border:1px solid rgba(255,255,255,.12);
+  flex-shrink:0;
+}
+.edu-logo-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.3rem}
+.edu-logo-img{
+  width:40px;height:40px;object-fit:contain;
+  background:#fff;border-radius:8px;padding:4px;
+  border:1px solid rgba(255,255,255,.1);flex-shrink:0;
+}
+
+/* ── CLICK BURST PARTICLES ── */
+.burst-particle{
+  position:fixed;border-radius:50%;pointer-events:none;z-index:9998;
+  animation:burstAnim var(--dur) ease-out forwards;
+}
+@keyframes burstAnim{
+  0%{transform:translate(0,0) scale(1);opacity:.9}
+  100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}
+}
+
+/* ── NAV ACTIVE LINK ── */
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after{width:100%}
+
+/* ── PARALLAX IMAGES ── */
+.img-card img{will-change:transform}
+
 </style>
 </head>
 <body>
 
+<div id="scroll-bar"></div>
+<div id="cursor-glow"></div>
 <!-- Neural network canvas -->
 <canvas id="neural-canvas"></canvas>
 
@@ -460,18 +550,37 @@ footer{
     <p class="hero-bio">
       Building AI systems at scale — from RAG pipelines serving <strong style="color:var(--white)">200M+ publications</strong> to genomic deep learning frameworks advancing cancer research at Harvard, Dana-Farber, and the Broad Institute.
     </p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-target="12">0</div>
-        <div class="hero-stat-label">Publications</div>
+    <div class="exp-badge-wrap">
+      <div class="exp-badge">
+        <svg class="exp-hex-bg" viewBox="0 0 90 102" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(201,162,39,0.18)"/>
+              <stop offset="100%" stop-color="rgba(201,162,39,0.06)"/>
+            </linearGradient>
+          </defs>
+          <!-- Filled hex -->
+          <polygon points="45,2 86,24 86,78 45,100 4,78 4,24"
+                   fill="url(#hexGrad)" stroke="rgba(201,162,39,0.55)" stroke-width="1.2"/>
+          <!-- Inner decorative hex -->
+          <polygon points="45,11 77,29 77,73 45,91 13,73 13,29"
+                   fill="none" stroke="rgba(201,162,39,0.2)" stroke-width="0.6" stroke-dasharray="3 4"/>
+          <!-- Corner accent dots -->
+          <circle cx="45" cy="2"  r="2" fill="rgba(201,162,39,0.7)"/>
+          <circle cx="86" cy="24" r="2" fill="rgba(201,162,39,0.5)"/>
+          <circle cx="86" cy="78" r="2" fill="rgba(201,162,39,0.5)"/>
+          <circle cx="45" cy="100" r="2" fill="rgba(201,162,39,0.7)"/>
+          <circle cx="4"  cy="78" r="2" fill="rgba(201,162,39,0.5)"/>
+          <circle cx="4"  cy="24" r="2" fill="rgba(201,162,39,0.5)"/>
+        </svg>
+        <div class="exp-badge-inner">
+          <span id="exp-years" class="exp-badge-num">0</span>
+          <span class="exp-badge-sup">+</span>
+        </div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-target="200" data-suffix="M+">0</div>
-        <div class="hero-stat-label">Docs Indexed</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-target="7" data-suffix="+">0</div>
-        <div class="hero-stat-label">Years Experience</div>
+      <div class="exp-badge-label">
+        <div class="exp-badge-title">Years of<br>Experience</div>
+        <div class="exp-badge-sub">in AI &amp; Machine Learning</div>
       </div>
     </div>
     <div class="hero-btns">
@@ -554,7 +663,12 @@ footer{
         <div class="tl-dot lit"></div>
         <img class="exp-img" src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=1200&q=75&fit=crop" alt="IEEE">
         <div class="tl-period">April 2025 — Present · Current Role</div>
-        <div class="tl-company">IEEE</div>
+        <div class="tl-company-row">
+          <div class="tl-logos">
+            <img class="tl-logo" src="https://logo.clearbit.com/ieee.org" alt="IEEE" onerror="this.style.display='none'">
+          </div>
+          <span class="tl-company">IEEE</span>
+        </div>
         <div class="tl-role">Senior Data Scientist</div>
         <div class="tl-loc"><i class="fas fa-location-dot" style="color:var(--gold);margin-right:.4rem"></i>Boston, USA</div>
         <ul class="tl-bullets">
@@ -568,7 +682,14 @@ footer{
         <div class="tl-dot"></div>
         <img class="exp-img" src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&q=75&fit=crop" alt="Harvard Research">
         <div class="tl-period">Feb 2023 — April 2025</div>
-        <div class="tl-company">Harvard · Dana-Farber · Broad</div>
+        <div class="tl-company-row">
+          <div class="tl-logos">
+            <img class="tl-logo" src="https://logo.clearbit.com/harvard.edu" alt="Harvard" onerror="this.style.display='none'">
+            <img class="tl-logo" src="https://logo.clearbit.com/dana-farber.org" alt="Dana-Farber" onerror="this.style.display='none'">
+            <img class="tl-logo" src="https://logo.clearbit.com/broadinstitute.org" alt="Broad Institute" onerror="this.style.display='none'">
+          </div>
+          <span class="tl-company">Harvard · Dana-Farber · Broad</span>
+        </div>
         <div class="tl-role">Machine Learning Research Scientist</div>
         <div class="tl-loc"><i class="fas fa-location-dot" style="color:var(--gold);margin-right:.4rem"></i>Boston, USA</div>
         <ul class="tl-bullets">
@@ -582,7 +703,12 @@ footer{
         <div class="tl-dot"></div>
         <img class="exp-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=75&fit=crop" alt="Best Buy">
         <div class="tl-period">Jan 2022 — May 2022</div>
-        <div class="tl-company">Best Buy Co.</div>
+        <div class="tl-company-row">
+          <div class="tl-logos">
+            <img class="tl-logo" src="https://logo.clearbit.com/bestbuy.com" alt="Best Buy" onerror="this.style.display='none'">
+          </div>
+          <span class="tl-company">Best Buy Co.</span>
+        </div>
         <div class="tl-role">Machine Learning Engineer Intern</div>
         <div class="tl-loc"><i class="fas fa-location-dot" style="color:var(--gold);margin-right:.4rem"></i>Boston, USA</div>
         <ul class="tl-bullets">
@@ -596,7 +722,12 @@ footer{
         <div class="tl-dot"></div>
         <img class="exp-img" src="https://images.unsplash.com/photo-1562774053-701939374585?w=1200&q=75&fit=crop" alt="Boston University">
         <div class="tl-period">Sep 2018 — May 2023</div>
-        <div class="tl-company">Boston University</div>
+        <div class="tl-company-row">
+          <div class="tl-logos">
+            <img class="tl-logo" src="https://logo.clearbit.com/bu.edu" alt="Boston University" onerror="this.style.display='none'">
+          </div>
+          <span class="tl-company">Boston University</span>
+        </div>
         <div class="tl-role">Research & Teaching Assistant</div>
         <div class="tl-loc"><i class="fas fa-location-dot" style="color:var(--gold);margin-right:.4rem"></i>Boston, USA</div>
         <ul class="tl-bullets">
@@ -699,7 +830,10 @@ footer{
         <img class="edu-img" src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=75&fit=crop" alt="Boston University">
         <div class="edu-body">
           <div class="edu-deg">Ph.D. · Systems Engineering</div>
-          <div class="edu-school">Boston University</div>
+          <div class="edu-logo-row">
+            <img class="edu-logo-img" src="https://logo.clearbit.com/bu.edu" alt="Boston University" onerror="this.style.display='none'">
+            <div class="edu-school">Boston University</div>
+          </div>
           <div class="edu-field">Machine Learning</div>
           <div class="edu-meta">Sep 2018 — May 2023<br>Thesis: Robust Learning to Rank and Its Biomedical Applications</div>
           <div class="edu-award"><i class="fas fa-trophy" style="color:var(--gold)"></i> 2023 BU Outstanding Ph.D. Dissertation Award</div>
@@ -709,7 +843,10 @@ footer{
         <img class="edu-img" src="https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?w=800&q=75&fit=crop" alt="Tehran Polytechnic">
         <div class="edu-body">
           <div class="edu-deg">M.S. · Systems Engineering</div>
-          <div class="edu-school">Tehran Polytechnic</div>
+          <div class="edu-logo-row">
+            <img class="edu-logo-img" src="https://logo.clearbit.com/aut.ac.ir" alt="Tehran Polytechnic" onerror="this.style.display='none'">
+            <div class="edu-school">Tehran Polytechnic</div>
+          </div>
           <div class="edu-field">Data Science</div>
           <div class="edu-meta">Sep 2015 — Sep 2017<br>GPA: 4.0 / 4.0 &nbsp;·&nbsp; Rank: 1st in Class<br>Thesis: Fuzzy Methods in ML and Data Mining</div>
           <div class="edu-award"><i class="fas fa-medal" style="color:var(--gold)"></i> Distinguished IE Student Award · 2015</div>
@@ -910,29 +1047,99 @@ const revealObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('.tl-item,.sk-group,.pub-card,.edu-card')
   .forEach(el => revealObs.observe(el));
 
-// ─── COUNTER ANIMATION ───────────────────────────────────────────────────────
-function animCount(el, target, suffix=''){
-  let current = 0;
-  const step = target / 60;
-  const timer = setInterval(() => {
-    current = Math.min(current + step, target);
-    el.textContent = Math.floor(current) + suffix;
-    if(current >= target) clearInterval(timer);
-  }, 25);
-}
+// ─── SCROLL PROGRESS BAR ─────────────────────────────────────────────────────
+const scrollBar = document.getElementById('scroll-bar');
+window.addEventListener('scroll', () => {
+  const pct = (scrollY / (document.body.scrollHeight - innerHeight)) * 100;
+  scrollBar.style.width = Math.min(pct, 100) + '%';
+});
 
-const counterObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      document.querySelectorAll('[data-target]').forEach(el => {
-        animCount(el, +el.dataset.target, el.dataset.suffix || '');
-      });
-      counterObs.disconnect();
+// ─── CURSOR GLOW ─────────────────────────────────────────────────────────────
+const cursorGlow = document.getElementById('cursor-glow');
+window.addEventListener('mousemove', e => {
+  cursorGlow.style.left = e.clientX + 'px';
+  cursorGlow.style.top  = e.clientY + 'px';
+});
+
+// ─── CLICK BURST ─────────────────────────────────────────────────────────────
+document.addEventListener('click', e => {
+  const count = 14;
+  for(let i = 0; i < count; i++){
+    const p = document.createElement('div');
+    p.className = 'burst-particle';
+    const angle = (i / count) * Math.PI * 2;
+    const dist  = 40 + Math.random() * 60;
+    const size  = 3 + Math.random() * 4;
+    const dur   = 0.5 + Math.random() * 0.4;
+    const gold  = Math.random() > .4;
+    p.style.cssText = [
+      `left:${e.clientX}px`, `top:${e.clientY}px`,
+      `width:${size}px`, `height:${size}px`,
+      `background:${gold ? '#c9a227' : '#3ecfca'}`,
+      `--tx:${Math.cos(angle)*dist}px`, `--ty:${Math.sin(angle)*dist}px`,
+      `--dur:${dur}s`,
+      `box-shadow:0 0 6px ${gold ? '#c9a227' : '#3ecfca'}`
+    ].join(';');
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), dur * 1000);
+  }
+});
+
+// ─── EXPERIENCE BADGE ────────────────────────────────────────────────────────
+(function(){
+  const yearsExp = new Date().getFullYear() - 2015;
+  const numEl = document.getElementById('exp-years');
+  if(!numEl) return;
+
+  const obs = new IntersectionObserver(entries => {
+    if(!entries[0].isIntersecting) return;
+    obs.disconnect();
+    let t0 = null;
+    const dur = 1400;
+    function step(ts){
+      if(!t0) t0 = ts;
+      const p = Math.min((ts - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      numEl.textContent = Math.round(e * yearsExp);
+      if(p < 1) requestAnimationFrame(step);
     }
-  });
-}, {threshold: .4});
-const statsEl = document.querySelector('.hero-stats');
-if(statsEl) counterObs.observe(statsEl);
+    requestAnimationFrame(step);
+  }, {threshold:.5});
+
+  const wrap = document.querySelector('.exp-badge-wrap');
+  if(wrap) obs.observe(wrap);
+})();
+
+// ─── ACTIVE NAV ON SCROLL ────────────────────────────────────────────────────
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, {rootMargin:'-40% 0px -55% 0px'});
+
+  sections.forEach(s => obs.observe(s));
+})();
+
+// ─── PARALLAX ON IMAGES ──────────────────────────────────────────────────────
+(function(){
+  const cards = document.querySelectorAll('.img-card img');
+  window.addEventListener('scroll', () => {
+    cards.forEach(img => {
+      const rect = img.closest('.img-card').getBoundingClientRect();
+      if(rect.bottom < 0 || rect.top > innerHeight) return;
+      const pct = (rect.top / innerHeight);
+      img.style.transform = `translateY(${pct * 12}px) scale(1.05)`;
+    });
+  }, {passive: true});
+})();
 
 // ─── PUBLICATION FILTER ──────────────────────────────────────────────────────
 function filterPubs(tag, btn){
