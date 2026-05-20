@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shahabeddin Sotudian — Senior Data Scientist & ML Researcher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -159,71 +160,178 @@ h1.hero-name em{font-style:italic;font-weight:300;color:var(--gold)}
 
 /* ── VISUAL ORBS (hero right) ── */
 .orb-container{
-  position:relative;width:380px;height:380px;
+  position:relative;width:460px;height:460px;
   opacity:0;animation:fadeIn 1.2s 1.4s forwards;
+  overflow:visible;
 }
 @keyframes fadeIn{to{opacity:1}}
 
+/* ── Rings ── */
 .orb-ring{
+  position:absolute;border-radius:50%;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+/* Outermost: dashed, faint */
+.ring0{
+  width:460px;height:460px;
+  border:1px dashed rgba(201,162,39,.1);
+  animation:spin 40s linear infinite;
+}
+.ring1{
+  width:380px;height:380px;
+  border:1px solid rgba(201,162,39,.18);
+  animation:spin 25s linear infinite;
+}
+.ring2{
+  width:300px;height:300px;
+  border:1px solid rgba(62,207,202,.22);
+  animation:spin 18s linear infinite reverse;
+}
+.ring3{
+  width:210px;height:210px;
+  border:1px solid rgba(201,162,39,.28);
+  animation:spin 12s linear infinite;
+}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* Glowing dot riders on each ring */
+.ring1::after,.ring2::after,.ring3::after{
+  content:'';position:absolute;border-radius:50%;
+  top:-5px;left:50%;transform:translateX(-50%);
+}
+.ring1::after{width:10px;height:10px;background:var(--gold);box-shadow:0 0 14px 3px var(--gold)}
+.ring2::after{width:8px;height:8px;background:var(--teal);box-shadow:0 0 12px 2px var(--teal)}
+.ring3::after{width:7px;height:7px;background:var(--gold-l);box-shadow:0 0 10px 2px var(--gold-l)}
+/* Second rider on ring1 at 180deg */
+.ring1::before{
+  content:'';position:absolute;border-radius:50%;
+  bottom:-5px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;background:rgba(201,162,39,.5);
+  box-shadow:0 0 8px var(--gold);
+}
+
+/* ── Radar sweep ── */
+.orb-scan{
+  position:absolute;top:50%;left:50%;
+  width:380px;height:380px;border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:conic-gradient(from 0deg,
+    rgba(62,207,202,.07) 0deg,
+    rgba(62,207,202,.01) 55deg,
+    transparent 55deg);
+  animation:sweep 7s linear infinite;
+  pointer-events:none;
+}
+@keyframes sweep{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* ── Core ── */
+.orb-core{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:136px;height:136px;border-radius:50%;
+  background:radial-gradient(circle at 38% 35%,
+    rgba(201,162,39,.28), rgba(62,207,202,.12) 55%, transparent 80%);
+  border:1px solid rgba(201,162,39,.45);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;z-index:2;
+  box-shadow:0 0 70px rgba(201,162,39,.14),inset 0 0 45px rgba(201,162,39,.07);
+  animation:pulse 3.2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 70px rgba(201,162,39,.14),inset 0 0 45px rgba(201,162,39,.07)}
+  50%{box-shadow:0 0 100px rgba(201,162,39,.26),inset 0 0 60px rgba(201,162,39,.12)}
+}
+/* Rotating inner ring inside core */
+.core-ring{
   position:absolute;border-radius:50%;border:1px solid;
   top:50%;left:50%;transform:translate(-50%,-50%);
 }
-.ring1{width:380px;height:380px;border-color:rgba(201,162,39,.15);animation:spin 25s linear infinite}
-.ring2{width:290px;height:290px;border-color:rgba(62,207,202,.2);animation:spin 18s linear infinite reverse}
-.ring3{width:210px;height:210px;border-color:rgba(201,162,39,.25);animation:spin 12s linear infinite}
-@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.cr1{width:110px;height:110px;border-color:rgba(201,162,39,.18);animation:spin 10s linear infinite}
+.cr2{width:88px;height:88px;border-color:rgba(62,207,202,.15);animation:spin 7s linear infinite reverse}
+/* Tick on core rings */
+.cr1::after{content:'';position:absolute;width:5px;height:5px;border-radius:50%;
+  top:-3px;left:50%;transform:translateX(-50%);background:rgba(201,162,39,.6)}
+.cr2::after{content:'';position:absolute;width:4px;height:4px;border-radius:50%;
+  top:-2px;left:50%;transform:translateX(-50%);background:rgba(62,207,202,.6)}
 
-.ring1::after,.ring2::after,.ring3::after{
-  content:'';position:absolute;width:8px;height:8px;border-radius:50%;
-  top:-4px;left:50%;transform:translateX(-50%);
-}
-.ring1::after{background:var(--gold);box-shadow:0 0 12px var(--gold)}
-.ring2::after{background:var(--teal);box-shadow:0 0 10px var(--teal)}
-.ring3::after{background:var(--gold-l);box-shadow:0 0 8px var(--gold-l)}
+.orb-core i{font-size:1.9rem;color:var(--gold);margin-bottom:.25rem;position:relative;z-index:1}
+.orb-core span{font-family:var(--mono);font-size:.55rem;letter-spacing:.12em;
+  color:var(--white-60);text-transform:uppercase;position:relative;z-index:1;line-height:1.6}
 
-.orb-core{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:130px;height:130px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%, rgba(201,162,39,.3), rgba(62,207,202,.15), transparent);
-  border:1px solid rgba(201,162,39,.4);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;
-  box-shadow:0 0 60px rgba(201,162,39,.12),inset 0 0 40px rgba(201,162,39,.06);
-  animation:pulse 3s ease-in-out infinite;
-}
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 60px rgba(201,162,39,.12),inset 0 0 40px rgba(201,162,39,.06)}
-  50%{box-shadow:0 0 80px rgba(201,162,39,.22),inset 0 0 50px rgba(201,162,39,.1)}
-}
-.orb-core i{font-size:1.8rem;color:var(--gold);margin-bottom:.3rem}
-.orb-core span{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:var(--white-60);text-transform:uppercase}
-
-/* Orbiting dots */
+/* ── Orbit dots ── */
 .orbit-dot{
-  position:absolute;width:10px;height:10px;border-radius:50%;
+  position:absolute;border-radius:50%;
   top:50%;left:50%;
 }
-.od1{background:rgba(201,162,39,.9);box-shadow:0 0 10px var(--gold);animation:orbit1 8s linear infinite}
-.od2{background:rgba(62,207,202,.9);box-shadow:0 0 10px var(--teal);animation:orbit2 13s linear infinite}
-.od3{background:rgba(201,162,39,.6);animation:orbit3 6s linear infinite}
-@keyframes orbit1{to{transform:rotate(360deg) translateX(145px) translateY(-5px)}}
+.od1{width:10px;height:10px;background:rgba(201,162,39,.95);
+  box-shadow:0 0 12px 2px var(--gold);animation:orbit1 8s linear infinite}
+.od2{width:8px;height:8px;background:rgba(62,207,202,.95);
+  box-shadow:0 0 10px 2px var(--teal);animation:orbit2 15s linear infinite}
+.od3{width:6px;height:6px;background:rgba(201,162,39,.7);
+  animation:orbit3 6s linear infinite}
+.od4{width:5px;height:5px;background:rgba(62,207,202,.6);
+  animation:orbit4 11s linear infinite reverse}
+.od5{width:7px;height:7px;background:rgba(232,197,90,.8);
+  box-shadow:0 0 8px var(--gold-l);animation:orbit5 9s linear infinite}
+@keyframes orbit1{to{transform:rotate(360deg) translateX(152px)}}
 @keyframes orbit2{to{transform:rotate(-360deg) translateX(190px)}}
 @keyframes orbit3{to{transform:rotate(360deg) translateX(105px)}}
+@keyframes orbit4{to{transform:rotate(-360deg) translateX(130px)}}
+@keyframes orbit5{to{transform:rotate(360deg) translateX(168px)}}
 
-/* Floating tag chips */
+/* ── Floating tag chips ── */
 .orb-tag{
   position:absolute;
-  padding:.3rem .8rem;
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;
-  border:1px solid var(--border);background:rgba(11,17,32,.85);
-  color:var(--gold);white-space:nowrap;backdrop-filter:blur(8px);
-  animation:floatTag 4s ease-in-out infinite;
+  display:flex;align-items:center;gap:.45rem;
+  padding:.32rem .85rem .32rem .65rem;
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.07em;
+  border:1px solid rgba(201,162,39,.28);
+  background:rgba(8,13,26,.88);
+  color:var(--white-60);white-space:nowrap;backdrop-filter:blur(12px);
+  transition:color .25s,border-color .25s,box-shadow .25s;
+  cursor:default;
 }
-.ot1{top:5%;left:60%;animation-delay:0s}
-.ot2{bottom:10%;left:55%;animation-delay:1.2s}
-.ot3{top:45%;left:-5%;animation-delay:.6s}
-.ot4{top:15%;left:-8%;animation-delay:1.8s}
-@keyframes floatTag{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.orb-tag:hover{color:var(--gold);border-color:rgba(201,162,39,.6);
+  box-shadow:0 0 18px rgba(201,162,39,.15)}
+.orb-tag.teal{border-color:rgba(62,207,202,.28);color:var(--white-60)}
+.orb-tag.teal:hover{color:var(--teal);border-color:rgba(62,207,202,.6);
+  box-shadow:0 0 18px rgba(62,207,202,.15)}
+
+/* Colored left-bar accent */
+.orb-tag::before{
+  content:'';width:3px;height:100%;position:absolute;left:0;top:0;
+  background:var(--gold);opacity:.7;
+}
+.orb-tag.teal::before{background:var(--teal)}
+
+/* Dot indicator inside tag */
+.tag-dot{
+  width:5px;height:5px;border-radius:50%;flex-shrink:0;
+  background:var(--gold);box-shadow:0 0 6px var(--gold);
+}
+.orb-tag.teal .tag-dot{background:var(--teal);box-shadow:0 0 6px var(--teal)}
+
+/* 12-o'clock tag: RAG Systems & Semantic Search */
+.ot1{top:-14px;left:50%;animation:ft1 4.5s ease-in-out infinite}
+/* 2-o'clock: AI Agents */
+.ot2{top:68px;right:-8px;animation:ft2 5s ease-in-out infinite;animation-delay:.6s}
+/* 3-o'clock: LLM Fine-Tuning */
+.ot3{top:50%;right:-8px;transform:translateY(-50%);animation:ft3 4.2s ease-in-out infinite;animation-delay:1.2s}
+/* 4-o'clock: Deep Learning */
+.ot4{bottom:68px;right:-8px;animation:ft4 5.5s ease-in-out infinite;animation-delay:1.8s}
+/* 6-o'clock: Learning to Rank */
+.ot5{bottom:-14px;left:50%;animation:ft5 4.8s ease-in-out infinite;animation-delay:.9s}
+/* 8-o'clock: LLM Evaluation */
+.ot6{bottom:68px;left:-8px;animation:ft6 4.3s ease-in-out infinite;animation-delay:2.1s}
+/* 10-o'clock: MLOps */
+.ot7{top:68px;left:-8px;animation:ft7 5.2s ease-in-out infinite;animation-delay:1.5s}
+
+@keyframes ft1{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
+@keyframes ft2{0%,100%{transform:translateY(0)}50%{transform:translate(5px,-9px)}}
+@keyframes ft3{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 9px)) translateX(4px)}}
+@keyframes ft4{0%,100%{transform:translateY(0)}50%{transform:translate(5px,9px)}}
+@keyframes ft5{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+@keyframes ft6{0%,100%{transform:translateY(0)}50%{transform:translate(-5px,9px)}}
+@keyframes ft7{0%,100%{transform:translateY(0)}50%{transform:translate(-5px,-9px)}}
 
 /* ── SECTION SHARED ── */
 .section-inner{max-width:1120px;margin:0 auto;padding:7rem 4rem}
@@ -454,7 +562,7 @@ footer{
 }
 .exp-badge{
   position:relative;flex-shrink:0;
-  width:90px;height:102px;
+  width:90px;height:106px;
 }
 .exp-hex-bg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 18px rgba(201,162,39,.18))}
 .exp-badge-inner{
@@ -462,13 +570,14 @@ footer{
   display:flex;align-items:center;justify-content:center;gap:0;
 }
 .exp-badge-num{
-  font-family:var(--serif);font-size:2.9rem;font-weight:700;
+  font-family:'Bebas Neue',sans-serif;font-size:3.4rem;font-weight:400;
   color:var(--gold);line-height:1;
-  text-shadow:0 0 24px rgba(201,162,39,.5);
+  letter-spacing:.04em;
+  text-shadow:0 0 28px rgba(201,162,39,.55);
 }
 .exp-badge-sup{
-  font-family:var(--serif);font-size:1.3rem;font-weight:300;
-  color:rgba(201,162,39,.75);align-self:flex-start;margin-top:.35rem;
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;font-weight:400;
+  color:rgba(201,162,39,.7);align-self:flex-start;margin-top:.3rem;letter-spacing:.04em;
 }
 .exp-badge-label{
   display:flex;flex-direction:column;gap:.35rem;
@@ -555,27 +664,27 @@ footer{
         <svg class="exp-hex-bg" viewBox="0 0 90 102" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="rgba(201,162,39,0.18)"/>
+              <stop offset="0%" stop-color="rgba(201,162,39,0.22)"/>
               <stop offset="100%" stop-color="rgba(201,162,39,0.06)"/>
             </linearGradient>
+            <linearGradient id="shieldStroke" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="rgba(201,162,39,0.8)"/>
+              <stop offset="100%" stop-color="rgba(201,162,39,0.35)"/>
+            </linearGradient>
           </defs>
-          <!-- Filled hex -->
-          <polygon points="45,2 86,24 86,78 45,100 4,78 4,24"
-                   fill="url(#hexGrad)" stroke="rgba(201,162,39,0.55)" stroke-width="1.2"/>
-          <!-- Inner decorative hex -->
-          <polygon points="45,11 77,29 77,73 45,91 13,73 13,29"
-                   fill="none" stroke="rgba(201,162,39,0.2)" stroke-width="0.6" stroke-dasharray="3 4"/>
-          <!-- Corner accent dots -->
-          <circle cx="45" cy="2"  r="2" fill="rgba(201,162,39,0.7)"/>
-          <circle cx="86" cy="24" r="2" fill="rgba(201,162,39,0.5)"/>
-          <circle cx="86" cy="78" r="2" fill="rgba(201,162,39,0.5)"/>
-          <circle cx="45" cy="100" r="2" fill="rgba(201,162,39,0.7)"/>
-          <circle cx="4"  cy="78" r="2" fill="rgba(201,162,39,0.5)"/>
-          <circle cx="4"  cy="24" r="2" fill="rgba(201,162,39,0.5)"/>
+          <!-- Shield outer -->
+          <path d="M45,2 L86,20 L86,62 Q86,95 45,100 Q4,95 4,62 L4,20 Z"
+                fill="url(#hexGrad)" stroke="url(#shieldStroke)" stroke-width="1.4"/>
+          <!-- Shield inner trace -->
+          <path d="M45,10 L78,26 L78,61 Q78,89 45,93 Q12,89 12,61 L12,26 Z"
+                fill="none" stroke="rgba(201,162,39,0.18)" stroke-width="0.7" stroke-dasharray="3 4"/>
+          <!-- Top crown accent dots -->
+          <circle cx="45" cy="2"  r="2.2" fill="rgba(201,162,39,0.8)"/>
+          <circle cx="86" cy="20" r="1.8" fill="rgba(201,162,39,0.55)"/>
+          <circle cx="4"  cy="20" r="1.8" fill="rgba(201,162,39,0.55)"/>
         </svg>
         <div class="exp-badge-inner">
           <span id="exp-years" class="exp-badge-num">0</span>
-          <span class="exp-badge-sup">+</span>
         </div>
       </div>
       <div class="exp-badge-label">
@@ -591,20 +700,34 @@ footer{
 
   <div class="hero-right">
     <div class="orb-container">
+      <!-- Rings -->
+      <div class="orb-ring ring0"></div>
       <div class="orb-ring ring1"></div>
       <div class="orb-ring ring2"></div>
       <div class="orb-ring ring3"></div>
+      <!-- Radar sweep -->
+      <div class="orb-scan"></div>
+      <!-- Orbit dots -->
       <div class="orbit-dot od1"></div>
       <div class="orbit-dot od2"></div>
       <div class="orbit-dot od3"></div>
+      <div class="orbit-dot od4"></div>
+      <div class="orbit-dot od5"></div>
+      <!-- Core -->
       <div class="orb-core">
+        <div class="core-ring cr1"></div>
+        <div class="core-ring cr2"></div>
         <i class="fas fa-brain"></i>
         <span>ML · AI<br>Research</span>
       </div>
-      <div class="orb-tag ot1">RAG Systems</div>
-      <div class="orb-tag ot2">Genomics AI</div>
-      <div class="orb-tag ot3">LLM Fine-Tuning</div>
-      <div class="orb-tag ot4">Search & Rank</div>
+      <!-- 7 expertise tags — clock-face positions -->
+      <div class="orb-tag ot1"><span class="tag-dot"></span>RAG Systems &amp; Semantic Search</div>
+      <div class="orb-tag ot2 teal"><span class="tag-dot"></span>AI Agents &amp; Multi-Agent Systems</div>
+      <div class="orb-tag ot3"><span class="tag-dot"></span>LLM Fine-Tuning &amp; Alignment</div>
+      <div class="orb-tag ot4 teal"><span class="tag-dot"></span>Deep Learning &amp; Multi-Modal AI</div>
+      <div class="orb-tag ot5"><span class="tag-dot"></span>Learning to Rank &amp; Recommendation</div>
+      <div class="orb-tag ot6 teal"><span class="tag-dot"></span>LLM Evaluation &amp; QA</div>
+      <div class="orb-tag ot7"><span class="tag-dot"></span>MLOps &amp; Cloud Infrastructure</div>
     </div>
   </div>
 </section>
