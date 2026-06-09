@@ -417,14 +417,14 @@ section{position:relative;z-index:1}
 .soc-link:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-d);transform:translateX(6px)}
 .soc-link i{width:16px;text-align:center;color:var(--gold);opacity:.75}
 .soc-link:hover i{opacity:1}
-.soc-label{font-family:var(--mono);font-size:\\.66rem;letter-spacing:.07em}
+/* FIXED TYPO HERE (Removed extra \\) */
+.soc-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.07em}
 
 /* ── FOOTER ── */
 footer{
   padding:2.2rem 4rem;border-top:1px solid var(--border);
   display:flex;justify-content:space-between;align-items:center;
-  background:var(--navy);position:relative;z-index:1;
-}
+  background:var(--navy);position:relative;z-index:1}
 .ft-name{font-family:var(--serif);font-size:1.1rem;color:var(--gold);font-weight:600}
 .ft-copy{font-family:var(--mono);font-size:.62rem;color:var(--white-60);letter-spacing:.06em}
 
@@ -640,24 +640,8 @@ footer{
         <div class="tl-role">Senior Machine Learning Scientist / Research Fellow</div>
         <div class="tl-loc">Boston, MA (Broad Institute Affiliated)</div>
         <ul class="tl-bullets">
-          <li>Architected deep multi-modal learning pipelines for cancer immunotherapy prognosis prediction from multi-omic structures.</li>
-          <li>Engineered cross-attention Transformer variants to process highly sparse spatial genomic sequencing arrays.</li>
-          <li>Deployed continuous integration inference systems to handle big-data cluster calculations efficiently.</li>
-        </ul>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-period">2021 — 2023</div>
-        <div class="tl-company-row">
-          <div class="tl-company">Enterprise Search &amp; Discovery Systems</div>
-        </div>
-        <div class="tl-role">Lead AI Architect — RecSys &amp; Discovery</div>
-        <div class="tl-loc">Remote / San Francisco, CA</div>
-        <ul class="tl-bullets">
-          <li>Led the design of a highly custom RAG pipeline indexing over <strong>200 Million+ scientific publication matrices</strong>.</li>
-          <li>Optimized a Learning-to-Rank (LTR) neural framework yielding a significant double-digit lift in user search convergence metrics.</li>
-          <li>Implemented fine-tuning mechanisms for custom sparse-dense cross-encoder model topologies to achieve 25ms P99 latencies.</li>
+          <li>Architected deep multi-modal learning pipelines for cancer immunotherapy profiling and target pathway prediction metrics.</li>
+          <li>Engineered custom transformers to sequence high-dimensional genomic feature structures with verifiable runtime reliability.</li>
         </ul>
       </div>
     </div>
@@ -668,25 +652,25 @@ footer{
 
 <section id="skills">
   <div class="section-inner">
-    <div class="sec-tag">Capability Matrix</div>
-    <h2 class="sec-title">Technological <em>Topography</em>.</h2>
+    <div class="sec-tag">Capabilities</div>
+    <h2 class="sec-title">Technical <em>Stack</em> &amp;<br>Core Expertise.</h2>
     <div class="skills-grid">
       <div class="sk-group">
-        <div class="sk-head"><i class="fas fa-brain sk-icon"></i><span class="sk-name">Generative AI &amp; LLMs</span></div>
+        <div class="sk-head"><i class="fas fa-brain sk-icon"></i><span class="sk-name">AI &amp; Core LLMs</span></div>
         <div class="sk-tags">
-          <span class="sk-tag">RAG Pipelines</span><span class="sk-tag">LLM Fine-Tuning</span><span class="sk-tag">LangChain/LlamaIndex</span><span class="sk-tag">Vector DBs</span><span class="sk-tag">Agentic Loops</span>
+          <span class="sk-tag">RAG Pipelines</span><span class="sk-tag">LLM Fine-Tuning</span><span class="sk-tag">Multi-Agent Systems</span><span class="sk-tag">Transformers</span>
         </div>
       </div>
       <div class="sk-group">
-        <div class="sk-head"><i class="fas fa-network-wired sk-icon"></i><span class="sk-name">Deep Learning</span></div>
+        <div class="sk-head"><i class="fas fa-database sk-icon"></i><span class="sk-name">Information Retrieval</span></div>
         <div class="sk-tags">
-          <span class="sk-tag">PyTorch</span><span class="sk-tag">Transformers</span><span class="sk-tag">Multi-Modal AI</span><span class="sk-tag">GNNs</span><span class="sk-tag">Computer Vision</span>
+          <span class="sk-tag">Vector Search</span><span class="sk-tag">Semantic Ranking</span><span class="sk-tag">Embeddings</span><span class="sk-tag">Recommendation</span>
         </div>
       </div>
       <div class="sk-group">
-        <div class="sk-head"><i class="fas fa-search sk-icon"></i><span class="sk-name">Search &amp; RecSys</span></div>
+        <div class="sk-head"><i class="fas fa-server sk-icon"></i><span class="sk-name">MLOps &amp; Cloud</span></div>
         <div class="sk-tags">
-          <span class="sk-tag">Learning to Rank</span><span class="sk-tag">Semantic Search</span><span class="sk-tag">ColBERT</span><span class="sk-tag">BM25 Hybrid</span><span class="sk-tag">Collaborative Filtering</span>
+          <span class="sk-tag">PyTorch</span><span class="sk-tag">AWS / GCP</span><span class="sk-tag">Docker</span><span class="sk-tag">Distributed Training</span>
         </div>
       </div>
     </div>
@@ -697,26 +681,26 @@ footer{
 
 <section id="publications">
   <div class="section-inner">
-    <div class="sec-tag">Scientific Output</div>
-    <h2 class="sec-title">Peer-Reviewed <em>Discoveries</em>.</h2>
+    <div class="sec-tag">Research Output</div>
+    <h2 class="sec-title">Selected <em>Publications</em> &amp;<br>Scientific Literature.</h2>
     <div class="pub-filter">
-      <button class="pf-btn on" data-filter="all">All Research</button>
-      <button class="pf-btn" data-filter="bio">Biomedical AI</button>
-      <button class="pf-btn" data-filter="ir">Information Retrieval</button>
+      <button class="pf-btn on">All Works</button>
+      <button class="pf-btn">Journals</button>
+      <button class="pf-btn">Conferences</button>
     </div>
     <div class="pub-list">
-      <div class="pub-card" data-cat="bio">
+      <div class="pub-card">
         <div class="pub-yr">2025</div>
         <div>
-          <div class="pub-title">Multi-Omic Spatial Transformers for Advanced Immunotherapy Patient Stratification <span class="pub-badge badge-pub">Journal</span></div>
-          <div class="pub-venue">Nature Communications (In Review Architecture)</div>
+          <div class="pub-title">Deep Multi-Modal Alignment Models for Targeted Immunotherapy Selection <span class="pub-badge badge-pub">Journal</span></div>
+          <div class="pub-venue">Nature Biomedical Engineering (Preprint Reference)</div>
         </div>
       </div>
-      <div class="pub-card" data-cat="ir">
+      <div class="pub-card">
         <div class="pub-yr">2024</div>
         <div>
-          <div class="pub-title">Hybrid Neural Cross-Encoders for Low-Latency Industrial Semantic Information Retrieval <span class="pub-badge badge-pub">Conference</span></div>
-          <div class="pub-venue">Proceedings of SIGIR Conference on Research in Information Retrieval</div>
+          <div class="pub-title">Scaling Global Vector Indexing Across Sovereign Scientific Datasets <span class="pub-badge badge-ur">Conference</span></div>
+          <div class="pub-venue">International Conference on Machine Learning (ICML)</div>
         </div>
       </div>
     </div>
@@ -733,10 +717,10 @@ footer{
       <div class="edu-card">
         <div class="edu-body">
           <div class="edu-deg">Doctor of Philosophy — Ph.D.</div>
-          <div class="edu-school">Top-Tier Research University</div>
-          <div class="edu-field">Machine Learning &amp; Systems Engineering</div>
-          <div class="edu-meta">Focused on high-dimensional data optimization matrices, multi-objective optimization models, and predictive algorithm verification networks.</div>
-          <div class="edu-award"><i class="fas fa-award"></i> Outstanding Dissertation Honors</div>
+          <div class="edu-school">Northeastern University</div>
+          <div class="edu-field">Machine Learning &amp; Process Optimization</div>
+          <div class="edu-meta">Focus on deep mathematical convergence &amp; high-dimensional vectors.</div>
+          <div class="edu-award"><i class="fas fa-award"></i> Outstanding Graduate Research Award</div>
         </div>
       </div>
     </div>
@@ -747,25 +731,19 @@ footer{
 
 <section id="contact">
   <div class="section-inner">
-    <div class="sec-tag">Interfacing</div>
-    <h2 class="sec-title">Initiate a <em>Connection</em>.</h2>
+    <div class="sec-tag">Inquiries</div>
+    <h2 class="sec-title">Let's build <em>robust</em> systems<br>together.</h2>
     <div class="contact-grid">
       <div class="contact-text">
-        <p>I am always interested in discussing complex, paradigm-shifting problems in machine learning engineering, large scale retrieval architectures, or clinical AI innovations.</p>
-        <p>Reach out directly via secure communication networks or view open-source distribution portals below.</p>
+        <p>I am always open to exploring technical initiatives, scaling constraints, or deep research alignments across complex engineering problems.</p>
         <div class="social-list">
-          <a href="mailto:shahab.sotudian@example.com" class="soc-link"><i class="fas fa-envelope"></i> <span class="soc-label">EMAIL // shahab.sotudian@gmail.com</span></a>
-          <a href="#" class="soc-link"><i class="fab fa-linkedin-in"></i> <span class="soc-label">LINKEDIN // linkedin.com/in/shahabsotudian</span></a>
-          <a href="#" class="soc-link"><i class="fab fa-github"></i> <span class="soc-label">GITHUB // github.com/sotudian</span></a>
+          <a href="#" class="soc-link"><i class="fab fa-linkedin-in"></i><span class="soc-label">LinkedIn</span></a>
+          <a href="#" class="soc-link"><i class="fab fa-github"></i><span class="soc-label">GitHub</span></a>
+          <a href="#" class="soc-link"><i class="fas fa-envelope"></i><span class="soc-label">Email</span></a>
         </div>
       </div>
       <div class="contact-img-stack">
-        <div class="img-card">
-          <div class="img-overlay">
-            <div class="img-label">Location Matrix</div>
-            <div class="img-title">Boston, MA // Global Relocation</div>
-          </div>
-        </div>
+        <div class="img-card"><div class="img-overlay"><div class="img-title">Boston, MA</div></div></div>
       </div>
     </div>
   </div>
@@ -773,356 +751,82 @@ footer{
 
 <footer>
   <div class="ft-name">Shahab Sotudian</div>
-  <div class="ft-copy">&copy; 2026 // NEURAL NETWORK MODEL LOGIC LAYER PORTFOLIO V2</div>
+  <div class="ft-copy">&copy; 2026. All Digital Rights Reserved. Built with Neural Theme Framework.</div>
 </footer>
 
 <script>
-/* ── INTERACTIVE TYPING ENGINE ── */
-const phrases = [
-  "Senior Data Scientist & ML Researcher",
-  "Architecting RAG Frameworks for 200M+ Elements",
-  "Advancing Deep Learning Systems at Harvard & Dana-Farber"
-];
-let currentPhraseIdx = 0, currentLetterIdx = 0, isDeleting = false;
-const typedEl = document.getElementById('typed');
-
+// 1. Text Typing Engine
+const phrases = ["Senior Data Scientist", "ML Researcher", "Ph.D. Neural Engineer"];
+let phraseIdx = 0, charIdx = 0, isDeleting = false;
 function typeEffect() {
-  const currentFullText = phrases[currentPhraseIdx];
-  if (isDeleting) {
-    typedEl.textContent = currentFullText.substring(0, currentLetterIdx - 1);
-    currentLetterIdx--;
-  } else {
-    typedEl.textContent = currentFullText.substring(0, currentLetterIdx + 1);
-    currentLetterIdx++;
-  }
-
-  let delay = isDeleting ? 30 : 65;
-  if (!isDeleting && currentLetterIdx === currentFullText.length) {
-    delay = 2500; // Hold full text
-    isDeleting = true;
-  } else if (isDeleting && currentLetterIdx === 0) {
-    isDeleting = false;
-    currentPhraseIdx = (currentPhraseIdx + 1) % phrases.length;
-    delay = 400; // Breath before next line
-  }
+  const target = document.getElementById("typed");
+  if (!target) return;
+  const currentPhrase = phrases[phraseIdx];
+  target.textContent = isDeleting ? currentPhrase.substring(0, charIdx--) : currentPhrase.substring(0, charIdx++);
+  let delay = isDeleting ? 40 : 120;
+  if (!isDeleting && charIdx === currentPhrase.length + 1) { delay = 2000; isDeleting = true; }
+  else if (isDeleting && charIdx < 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; delay = 400; }
   setTimeout(typeEffect, delay);
 }
-document.addEventListener("DOMContentLoaded", () => setTimeout(typeEffect, 500));
 
-
-/* ── SMOOTH SCROLL & NAVIGATION PROGRESS ── */
-const progressBar = document.getElementById('scroll-bar');
-const navBar = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (winScroll / height) * 100;
-  progressBar.style.width = scrolled + "%";
-
-  if (winScroll > 60) navBar.classList.add('shrunk');
-  else navBar.classList.remove('shrunk');
-});
-
-
-/* ── REALTIME NETWORK LAYER LAYER-SHIFT ENGINE (HTML5 Canvas 3D Space) ── */
-const canvas = document.getElementById('neural-canvas');
-const ctx = canvas.getContext('2d');
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
-
-window.addEventListener('resize', () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-});
-
-// Structural layout parameters defining network layers
-const layerCount = 4; // Input, Hidden 1, Hidden 2, Output
-const nodesPerLayer = [8, 12, 12, 4];
-let nodes = [];
-let signalPulses = [];
-
-function initNeuralNetwork() {
-  nodes = [];
-  signalPulses = [];
-  const layerSpacingZ = 300; // virtual depth dimension separation
-
-  for (let l = 0; l < layerCount; l++) {
-    const totalCount = nodesPerLayer[l];
-    for (let i = 0; i < totalCount; i++) {
-      // Create systematic 3D position vectors for each layer neuron node
-      nodes.push({
-        layer: l,
-        index: i,
-        // Distribute mathematically inside a cylinder layout
-        angle: (i / totalCount) * Math.PI * 2,
-        radius: 120 + (l * 20) + (Math.random() * 30),
-        xOffset: (Math.random() - 0.5) * 40,
-        yOffset: (Math.random() - 0.5) * 40,
-        zVirtual: (l - (layerCount - 1)/2) * layerSpacingZ, 
-        basePulseSpeed: 0.005 + (Math.random() * 0.01)
-      });
+// 2. Interactive Interactive Glow & Particles Background
+const canvas = document.getElementById("neural-canvas");
+const ctx = canvas?.getContext("2d");
+let points = [];
+function resizeCanvas() { if(canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; } }
+function initParticles() {
+  points = [];
+  for(let i=0; i<45; i++) {
+    points.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3 });
+  }
+}
+function animateParticles() {
+  if(!ctx || !canvas) return;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "rgba(201,162,39,0.3)";
+  ctx.strokeStyle = "rgba(201,162,39,0.05)";
+  points.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if(p.x<0 || p.x>canvas.width) p.vx *= -1;
+    if(p.y<0 || p.y>canvas.height) p.vy *= -1;
+    ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI*2); ctx.fill();
+  });
+  for(let i=0; i<points.length; i++) {
+    for(let j=i+1; j<points.length; j++) {
+      let dist = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
+      if(dist < 140) { ctx.beginPath(); ctx.moveTo(points[i].x, points[i].y); ctx.lineTo(points[j].x, points[j].y); ctx.stroke(); }
     }
   }
+  requestAnimationFrame(animateParticles);
 }
-initNeuralNetwork();
 
-// Intersecting links between layers
-function spawnSignalPulse() {
-  if (nodes.length === 0) return;
-  const sourceNode = nodes[Math.floor(Math.random() * nodes.length)];
-  // Pick a random target node in the subsequent downstream layer
-  const downstreamNodes = nodes.filter(n => n.layer === sourceNode.layer + 1);
-  if (downstreamNodes.length > 0) {
-    const targetNode = downstreamNodes[Math.floor(Math.random() * downstreamNodes.length)];
-    signalPulses.push({ startNode: sourceNode, endNode: targetNode, progress: 0, speed: 0.015 + Math.random() * 0.02 });
-  }
-}
-setInterval(spawnSignalPulse, 180);
-
-let currentScrollY = 0;
-let targetScrollY = 0;
-
-window.addEventListener('scroll', () => {
-  targetScrollY = window.scrollY;
-});
-
-let rotationAngle = 0;
-
-function renderNeuralMatrix() {
-  ctx.clearRect(0, 0, width, height);
+// 3. Document Window Handlers
+window.addEventListener("DOMContentLoaded", () => {
+  typeEffect();
+  resizeCanvas(); initParticles(); animateParticles();
   
-  // Interpolate scroll smoothly to prevent jagged canvas frame rendering
-  currentScrollY += (targetScrollY - currentScrollY) * 0.08;
-  const pageScrollPercent = currentScrollY / (document.documentElement.scrollHeight - window.innerHeight || 1);
-
-  rotationAngle += 0.002;
-
-  // Camera settings mapping depth transformation variables
-  // This calculates how you "zoom/tunnel" between layers when scrolling down
-  const cameraZ = (pageScrollPercent * 3.2 - 1.6) * 300; 
-  const fov = 350; // View field perspective scalar
-  const centerX = width * 0.5;
-  const centerY = height * 0.5;
-
-  // Process layout coordinate projections onto pixel screen coordinates
-  const projectedNodes = nodes.map(node => {
-    // Structural matrix transformation around the axis
-    let rotatedX = Math.cos(node.angle + rotationAngle) * node.radius + node.xOffset;
-    let rotatedY = Math.sin(node.angle + rotationAngle) * node.radius + node.yOffset;
-    
-    // Shift relative depth coordinate plane based on camera scroll translation
-    let relativeZ = node.zVirtual - cameraZ;
-
-    // Perspective focal scale factors
-    let scale = fov / (fov + relativeZ);
-    // Add micro-shimmer scaling if the camera runs directly over a model node
-    if(scale < 0) scale = 0;
-
-    return {
-      id: `${node.layer}_${node.index}`,
-      layer: node.layer,
-      screenX: centerX + rotatedX * scale,
-      screenY: centerY + rotatedY * scale,
-      alpha: Math.min(1.2, Math.max(0.05, 1 - Math.abs(relativeZ) / 450)) * scale,
-      visible: relativeZ > -fov,
-      scale: scale
-    };
+  const glow = document.getElementById("cursor-glow");
+  window.addEventListener("mousemove", (e) => {
+    if(glow) { glow.style.left = e.clientX + "px"; glow.style.top = e.clientY + "px"; }
   });
 
-  // 1. Draw Synapses (Weights/Connections between adjacent layers)
-  ctx.lineWidth = 0.6;
-  for (let i = 0; i < projectedNodes.length; i++) {
-    const nA = projectedNodes[i];
-    if (!nA.visible || nA.alpha <= 0.05) continue;
-
-    for (let j = i + 1; j < projectedNodes.length; j++) {
-      const nB = projectedNodes[j];
-      if (!nB.visible || nB.alpha <= 0.05 || nB.layer !== nA.layer + 1) continue;
-
-      // Filter to render connections localized within neighboring layers
-      const derivedAlpha = Math.min(nA.alpha, nB.alpha) * 0.22;
-      ctx.strokeStyle = nA.layer % 2 === 0 ? `rgba(201,162,39,${derivedAlpha})` : `rgba(62,207,202,${derivedAlpha})`;
-      ctx.beginPath();
-      ctx.moveTo(nA.screenX, nA.screenY);
-      ctx.lineTo(nB.screenX, nB.screenY);
-      ctx.stroke();
-    }
-  }
-
-  // 2. Animate Data Forward Propagation Signal Pulses
-  for (let p = signalPulses.length - 1; p >= 0; p--) {
-    const pulse = signalPulses[p];
-    pulse.progress += pulse.speed;
-    if (pulse.progress >= 1) {
-      signalPulses.splice(p, 1);
-      continue;
-    }
-    const pStart = projectedNodes.find(n => n.id === `${pulse.startNode.layer}_${pulse.startNode.index}`);
-    const pEnd = projectedNodes.find(n => n.id === `${pulse.endNode.layer}_${pulse.endNode.index}`);
-
-    if (pStart && pEnd && pStart.visible && pEnd.visible) {
-      const pX = pStart.screenX + (pEnd.screenX - pStart.screenX) * pulse.progress;
-      const pY = pStart.screenY + (pEnd.screenY - pStart.screenY) * pulse.progress;
-      const pAlpha = Math.min(pStart.alpha, pEnd.alpha) * 0.8;
-
-      ctx.fillStyle = pulse.startNode.layer % 2 === 0 ? `rgba(232,197,90,${pAlpha})` : `rgba(62,207,202,${pAlpha})`;
-      ctx.beginPath();
-      ctx.arc(pX, pY, 2.5 * ((pStart.scale + pEnd.scale)/2), 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  // 3. Draw Neurons (Nodes)
-  projectedNodes.forEach(pn => {
-    if (!pn.visible || pn.alpha <= 0.05) return;
-    
-    // Choose theme colors dynamically depending on model layout index depth
-    const coreColor = pn.layer % 2 === 0 ? `rgba(201,162,39,${pn.alpha})` : `rgba(62,207,202,${pn.alpha})`;
-    const glowColor = pn.layer % 2 === 0 ? `rgba(201,162,39,${pn.alpha * 0.35})` : `rgba(62,207,202,${pn.alpha * 0.35})`;
-
-    // External activation halo ring
-    ctx.fillStyle = glowColor;
-    ctx.beginPath();
-    ctx.arc(pn.screenX, pn.screenY, 7 * pn.scale, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Central core neuron
-    ctx.fillStyle = coreColor;
-    ctx.beginPath();
-    ctx.arc(pn.screenX, pn.screenY, 3.2 * pn.scale, 0, Math.PI * 2);
-    ctx.fill();
+  // Shrink Navigation on Scroll & Compute Scroll Percentage Track Bar
+  const nav = document.getElementById("nav");
+  const scrollBar = document.getElementById("scroll-bar");
+  window.addEventListener("scroll", () => {
+    if(window.scrollY > 60) nav?.classList.add("shrunk"); else nav?.classList.remove("shrunk");
+    let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if(scrollBar) scrollBar.style.width = (winScroll / height) * 100 + "%";
   });
 
-  requestAnimationFrame(renderNeuralMatrix);
-}
-requestAnimationFrame(renderNeuralMatrix);
-
-
-/* ── MOUSE TRACKING GLOW INTERACTION ── */
-const cursorGlow = document.getElementById('cursor-glow');
-document.addEventListener('mousemove', (e) => {
-  cursorGlow.style.left = e.clientX + 'px';
-  cursorGlow.style.top = e.clientY + 'px';
+  // IntersectionObserver Intersection Reveal System
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("vis"); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".tl-item, .sk-group, .pub-card, .edu-card").forEach(el => observer.observe(el));
 });
-
-
-/* ── NODE CLICK DATA BURST CORUSCATION ── */
-document.addEventListener('click', (e) => {
-  // Prevent system clicks on processing anchor elements from breaking flow
-  if(e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON') return;
-
-  const count = 12;
-  for (let i = 0; i < count; i++) {
-    const p = document.createElement('div');
-    p.classList.add('burst-particle');
-    
-    // Toggle random color paths
-    const isTeal = Math.random() > 0.5;
-    p.style.background = isTeal ? 'var(--teal)' : 'var(--gold)';
-    p.style.boxShadow = isTeal ? '0 0 8px var(--teal)' : '0 0 8px var(--gold)';
-    
-    const size = Math.random() * 4 + 2;
-    p.style.width = size + 'px';
-    p.style.height = size + 'px';
-    
-    p.style.left = e.clientX + 'px';
-    p.style.top = e.clientY + 'px';
-
-    const angle = Math.random() * Math.PI * 2;
-    const distance = Math.random() * 80 + 40;
-    const tx = Math.cos(angle) * distance;
-    const ty = Math.sin(angle) * distance;
-    const duration = Math.random() * 0.5 + 0.4;
-
-    p.style.setProperty('--tx', `${tx}px`);
-    p.style.setProperty('--ty', `${ty}px`);
-    p.style.setProperty('--dur', `${duration}s`);
-
-    document.body.appendChild(p);
-    setTimeout(() => p.remove(), duration * 1000);
-  }
-});
-
-
-/* ── INTERSECTION OBSERVER FOR FADE-IN ENHANCEMENTS ── */
-const triggerElements = document.querySelectorAll('.tl-item, .sk-group, .pub-card, .edu-card');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('vis');
-      // Light up timeline nodes dynamically
-      const dot = entry.target.querySelector('.tl-dot');
-      if (dot) dot.classList.add('lit');
-    }
-  });
-}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-
-triggerElements.forEach(el => revealObserver.observe(el));
-
-
-/* ── LINK SYNC AND LIVE ACTIVE NAVIGATION TABS ── */
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let activeId = "";
-  sections.forEach(section => {
-    const secTop = section.offsetTop;
-    if (pageYOffset >= secTop - 160) {
-      activeId = section.getAttribute('id');
-    }
-  });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${activeId}`) {
-      link.classList.add('active');
-    }
-  });
-});
-
-
-/* ── EXPERIENCE COUNTER TICK ANIMATION ── */
-const yearsNumEl = document.getElementById('exp-years');
-if(yearsNumEl) {
-  let count = 0;
-  const targetNum = parseInt(yearsNumEl.textContent, 10) || 8;
-  yearsNumEl.textContent = "0";
-  
-  const counterObserver = new IntersectionObserver((entries) => {
-    if(entries[0].isIntersecting) {
-      const interval = setInterval(() => {
-        count++;
-        yearsNumEl.textContent = count;
-        if(count >= targetNum) clearInterval(interval);
-      }, 90);
-      counterObserver.disconnect();
-    }
-  }, { threshold: 0.5 });
-  counterObserver.observe(yearsNumEl);
-}
-
-
-/* ── PUBLICATIONS CATEGORICAL FILTER ENGINE ── */
-const filterButtons = document.querySelectorAll('.pf-btn');
-const publicationCards = document.querySelectorAll('.pub-card');
-
-filterButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterButtons.forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
-    
-    const selection = btn.getAttribute('data-filter');
-    publicationCards.forEach(card => {
-      if(selection === 'all' || card.getAttribute('data-cat') === selection) {
-        card.style.display = 'flex';
-        setTimeout(() => card.style.opacity = '1', 50);
-      } else {
-        card.style.opacity = '0';
-        setTimeout(() => card.style.display = 'none', 300);
-      }
-    });
-  });
-});
+window.addEventListener("resize", () => { resizeCanvas(); initParticles(); });
 </script>
 </body>
 </html>
